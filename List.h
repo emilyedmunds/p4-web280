@@ -175,7 +175,7 @@ public:
 //EFFECTS:  returns true if the list is empty
 template<typename T>
 bool List<T>::empty() const {
-  assert(false);
+//  assert(false);
     //see if first and last are pointing to null_ptr
     //a list of size zero is defined by: first = null_ptr
 //    Node* ptr = first; //this is probs wrong

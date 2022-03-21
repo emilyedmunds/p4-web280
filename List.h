@@ -22,8 +22,12 @@ class List {
 public:
     //constructor
     List():first(nullptr),last(nullptr){}
+    List(const List<T> &other):first(nullptr), last(nullptr){
+        copy_all(other);
+    }
+
     //need copy constructor ???
-   
+
 
   //EFFECTS:  returns true if the list is empty
   bool empty() const;
@@ -170,7 +174,7 @@ public:
 //EFFECTS:  returns true if the list is empty
 template<typename T>
 bool List<T>::empty() const {
-  assert(false);
+  //assert(false);
     //see if first and last are pointing to null_ptr
     //a list of size zero is defined by: first = null_ptr
 //    Node* ptr = first; //this is probs wrong
@@ -228,11 +232,11 @@ void List<T>::push_front(const T &datum){
 //    temp->next = first;
 //    temp->prev = nullptr;
 //    first = temp;
-   // Node* temp = new Node{datum, first, nullptr};
-    Node* temp = new Node;
-    temp->datum = datum;
-    temp->next = first;
-    temp->prev = nullptr;
+    Node* temp = new Node{first, nullptr,datum};
+//    Node* temp = new Node;
+//    temp->datum = datum;
+//    temp->next = first;
+//    temp->prev = nullptr;
     if(empty()){
         first = last = temp;
     }else{
@@ -255,11 +259,11 @@ void List<T>::push_back(const T &datum){
 //    temp->next = nullptr;
 //    last = temp;
           
-    //Node* temp = new Node{datum, nullptr, last};
-    Node* temp = new Node;
-    temp->datum = datum;
-    temp->next = nullptr;
-    temp->prev = last;
+    Node* temp = new Node{nullptr, last,datum};
+//    Node* temp = new Node;
+//    temp->datum = datum;
+//    temp->next = nullptr;
+//    temp->prev = last;
     if(empty()){
         first = last = temp;
     }else{
@@ -323,7 +327,7 @@ void List<T>::copy_all(const List<T> &other){
     //copies over all values of next and previous
     //copies everything from (other) to (this)
     for(Node* ptr = first; ptr != nullptr; ptr = ptr->next){
-        this->push_back(other);
+        this->push_back(ptr->datum);
     }
 }
 

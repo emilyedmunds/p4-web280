@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		81EE6C8527E3BC660068E929 /* List_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81EE6C6F27E3BC660068E929 /* List_tests.cpp */; };
 		81EE6C8627E3BC660068E929 /* List_compile_check.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81EE6C7327E3BC660068E929 /* List_compile_check.cpp */; };
-		81EE6C8727E3BC660068E929 /* api.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81EE6C7C27E3BC660068E929 /* api.cpp */; };
 		81EE6C8827E3BC660068E929 /* List_public_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81EE6C8027E3BC660068E929 /* List_public_test.cpp */; };
 		81EE6C8927E3BC660068E929 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 81EE6C8327E3BC660068E929 /* Makefile */; };
 /* End PBXBuildFile section */
@@ -160,7 +159,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				81EE6C8927E3BC660068E929 /* Makefile in Sources */,
-				81EE6C8727E3BC660068E929 /* api.cpp in Sources */,
 				81EE6C8627E3BC660068E929 /* List_compile_check.cpp in Sources */,
 				81EE6C8827E3BC660068E929 /* List_public_test.cpp in Sources */,
 				81EE6C8527E3BC660068E929 /* List_tests.cpp in Sources */,

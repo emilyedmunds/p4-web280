@@ -228,7 +228,11 @@ void List<T>::push_front(const T &datum){
 //    temp->next = first;
 //    temp->prev = nullptr;
 //    first = temp;
-    Node* temp = new Node{datum, first, nullptr};
+   // Node* temp = new Node{datum, first, nullptr};
+    Node* temp = new Node;
+    temp->datum = datum;
+    temp->next = first;
+    temp->prev = nullptr;
     if(empty()){
         first = last = temp;
     }else{
@@ -251,7 +255,11 @@ void List<T>::push_back(const T &datum){
 //    temp->next = nullptr;
 //    last = temp;
           
-    Node* temp = new Node{datum, nullptr, last};
+    //Node* temp = new Node{datum, nullptr, last};
+    Node* temp = new Node;
+    temp->datum = datum;
+    temp->next = nullptr;
+    temp->prev = last;
     if(empty()){
         first = last = temp;
     }else{

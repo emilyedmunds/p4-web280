@@ -22,12 +22,8 @@ class List {
 public:
     //constructor
     List():first(nullptr),last(nullptr){}
-    //need copy constructor
-    
-    //probs need to fix this!!
-    List(const List<T> &other):first(nullptr), last(nullptr){
-        copy_all(other);
-    }
+    //need copy constructor ???
+   
 
   //EFFECTS:  returns true if the list is empty
   bool empty() const;
@@ -84,12 +80,19 @@ private:
 
   Node *first;   // points to first Node in list, or nullptr if list is empty
   Node *last;    // points to last Node in list, or nullptr if list is empty
-    int list_size; // keeping track of the size of the list
+  int list_size; // keeping track of the size of the list
+  
+    //can we just call copy_all here??
+//    List(const List<T> &other):first(nullptr), last(nullptr){
+//        for(Node* ptr = first; ptr != nullptr; ptr = ptr->next){
+//            this->push_back(other);
+//        }
+//    }
 
 public:
   ////////////////////////////////////////
   class Iterator {
-      friend class List;
+      //friend class List;
     //OVERVIEW: Iterator interface to List
 
     // You should add in a default constructor, destructor, copy constructor,
@@ -102,7 +105,10 @@ public:
 
   public:
       Iterator():node_ptr(nullptr){}
-      ~Iterator() { delete node_ptr; }
+      //copy constructor
+      Iterator(const Iterator &other):node_ptr(nullptr){};
+      
+      ~Iterator() { delete node_ptr;}
     // This operator will be used to test your code. Do not modify it.
     // Requires that the current element is dereferenceable.
     Iterator& operator--() {
@@ -117,6 +123,8 @@ public:
 
   private:
     Node *node_ptr; //current Iterator position is a List node
+    friend class List;
+
     // add any additional necessary member variables here
 
     // add any friend declarations here
@@ -225,7 +233,7 @@ void List<T>::push_front(const T &datum){
         first = last = temp;
     }else{
         first->prev = temp;
-        temp->nect = first;
+        temp->next = first;
         first = temp;
     }
     list_size++;

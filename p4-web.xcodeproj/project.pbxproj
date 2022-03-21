@@ -7,12 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+<<<<<<< HEAD
 		81EE6C8627E3BC660068E929 /* List_compile_check.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81EE6C7327E3BC660068E929 /* List_compile_check.cpp */; };
 <<<<<<< HEAD
 =======
 		81EE6C8827E3BC660068E929 /* List_public_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81EE6C8027E3BC660068E929 /* List_public_test.cpp */; };
 		81EE6C8927E3BC660068E929 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 81EE6C8327E3BC660068E929 /* Makefile */; };
 >>>>>>> 412d6c8a86abde98d0058b37237e3f0dbf002eaa
+=======
+		81EE6C8927E3BC660068E929 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = 81EE6C8327E3BC660068E929 /* Makefile */; };
+		81EE6C8C27E8FA280068E929 /* List_compile_check.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 81EE6C7327E3BC660068E929 /* List_compile_check.cpp */; };
+>>>>>>> e9499685fa99b404bd1a5ba042e766319d1fe985
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -161,10 +166,15 @@
 			buildActionMask = 2147483647;
 			files = (
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 				81EE6C8927E3BC660068E929 /* Makefile in Sources */,
 >>>>>>> 412d6c8a86abde98d0058b37237e3f0dbf002eaa
 				81EE6C8627E3BC660068E929 /* List_compile_check.cpp in Sources */,
+=======
+				81EE6C8C27E8FA280068E929 /* List_compile_check.cpp in Sources */,
+				81EE6C8927E3BC660068E929 /* Makefile in Sources */,
+>>>>>>> e9499685fa99b404bd1a5ba042e766319d1fe985
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

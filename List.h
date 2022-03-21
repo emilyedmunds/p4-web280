@@ -23,6 +23,7 @@ public:
     //constructor
     List():first(nullptr),last(nullptr){}
     //need copy constructor ???
+    
    
 
   //EFFECTS:  returns true if the list is empty
@@ -65,6 +66,10 @@ public:
   // and overloaded assignment operator, if appropriate. If these operations
   // will work correctly without defining these, you can omit them. A user
   // of the class must be able to create, copy, assign, and destroy Lists
+    List(const List<T> &other):first(nullptr), last(nullptr){
+        copy_all(other);
+    }
+    
 
 private:
   //a private type
@@ -228,7 +233,7 @@ void List<T>::push_front(const T &datum){
 //    temp->next = first;
 //    temp->prev = nullptr;
 //    first = temp;
-    Node* temp = new Node{datum, first, nullptr};
+    Node* temp = new Node{first, nullptr, datum};
     if(empty()){
         first = last = temp;
     }else{
@@ -251,7 +256,7 @@ void List<T>::push_back(const T &datum){
 //    temp->next = nullptr;
 //    last = temp;
           
-    Node* temp = new Node{datum, nullptr, last};
+    Node* temp = new Node{nullptr, last, datum};
     if(empty()){
         first = last = temp;
     }else{
@@ -315,7 +320,8 @@ void List<T>::copy_all(const List<T> &other){
     //copies over all values of next and previous
     //copies everything from (other) to (this)
     for(Node* ptr = first; ptr != nullptr; ptr = ptr->next){
-        this->push_back(other);
+//        this->push_back(ptr->datum);
+        push_back(ptr->datum);
     }
 }
 

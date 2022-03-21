@@ -23,6 +23,11 @@ public:
     //constructor
     List():first(nullptr),last(nullptr){}
     //need copy constructor
+    
+    //probs need to fix this!!
+    List(const List<T> &other):first(nullptr), last(nullptr){
+        copy_all(other);
+    }
 
   //EFFECTS:  returns true if the list is empty
   bool empty() const;
@@ -182,14 +187,16 @@ int List<T>::size() const{
 //EFFECTS: Returns the first element in the list by reference
 template<typename T>
 T & List<T>:: front(){
-    return first;
+    return first->datum;
+   // return first;
 }
 
 //REQUIRES: list is not empty
 //EFFECTS: Returns the last element in the list by reference
 template<typename T>
 T & List<T>::back(){
-   return last;
+    return last->datum;
+    //return last;
 }
 
 //EFFECTS:  inserts datum into the front of the list
@@ -328,8 +335,9 @@ bool List<T>::Iterator::operator!=(Iterator rhs) const {
 //MODIFIES: may invalidate other list iterators
 //EFFECTS: Removes a single element from the list container
 
+//void Iterator::erase(Iterator i){
 template<typename T>
-void List<T>::Iterator::erase(Iterator i){
+void List<T>::erase(Iterator i){
     //given an iterator i, delete the node at a given iterator
     Node *target = i.node_ptr;
     if(i == Iterator(last)){
@@ -348,11 +356,11 @@ void List<T>::Iterator::erase(Iterator i){
 //REQUIRES: i is a valid iterator associated with this list
 //EFFECTS: inserts datum before the element at the specified position.
 template<typename T>
-void List<T>::Iterator::insert(Iterator i, const T &datum){
+void List<T>::insert(Iterator i, const T &datum){
     Node *target = new Node;
     target->datum = datum;
     Node *iter = i.node_ptr;
-    if(i == first){
+    if(i == List<T>::Iterator(first)){
         push_front(datum);
     }else{
         target->next = iter;

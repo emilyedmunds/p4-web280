@@ -79,6 +79,7 @@ private:
 
   Node *first;   // points to first Node in list, or nullptr if list is empty
   Node *last;    // points to last Node in list, or nullptr if list is empty
+    int list_size; // keeping track of the size of the list
 
 public:
   ////////////////////////////////////////
@@ -174,7 +175,7 @@ bool List<T>::empty() const {
 //         with a private member variable.  That's how std::list does it.
 template<typename T>
 int List<T>::size() const{
-    assert(false);
+    return list_size;
 }
 
 //REQUIRES: list is not empty
@@ -220,7 +221,7 @@ void List<T>::push_front(const T &datum){
         temp->nect = first;
         first = temp;
     }
-    
+    list_size++;
 }
 
 
@@ -243,6 +244,7 @@ void List<T>::push_back(const T &datum){
         temp->prev = last;
         last = temp;
     }
+    list_size++;
 }
 
 //REQUIRES: list is not empty
@@ -263,7 +265,7 @@ void List<T>::pop_front(){
 //    if(first == nullptr){
 //        ptr->last = nullptr;
 //    }
-    
+    list_size--;
 }
 
 //REQUIRES: list is not empty
@@ -276,7 +278,7 @@ void List<T>::pop_back(){
     delete last;
     last = ptr;
     last->next = nullptr;
-    
+    list_size--;
 }
 
 //MODIFIES: may invalidate list iterators
@@ -285,7 +287,12 @@ template<typename T>
 void List<T>::clear(){
     //iteratively go thru and delete every node (remember pop_front and pop_back do this for us automatically
     //pop front deletes node at front, so what if we go thru list and call popfront until list is undefined (until first is defined as nullptr)
-    assert(false);
+//    for (Node *np = first; np; np= np->next) {
+//        np-> pop_front();
+//    }
+    while (!empty()) {
+        pop_front();
+    }
 }
 //not sure if this should have the List<T>:: part
 template<typename T>
